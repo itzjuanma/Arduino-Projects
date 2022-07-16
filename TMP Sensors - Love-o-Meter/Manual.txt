@@ -1,0 +1,9 @@
+LOVE-O-METER PROJECT (16-07-2022)
+
+
+We'll the Analog Digital Coverter (ADC) integrated in the Arduino to get information from the analogic sensors to measure things like temperature or light. The analog input pins A0-A5 can return values between 0-1023 that correspoond to a voltage range between 0 and 5 volts. 
+
+We'll use a temperature sensor (TMP 36) to measure the temperature on our skin. This component emits a variable voltage depending on the temperature that it detects. It has three pins; one that connects to GND, the second one that connects to power and the third one that emits the variable voltage to the Arduino. We will read the output from the sensor and use it to turn on and off LEDs depending on the temperature that it detects. The TMP36 emits a variable voltage that changes on a directly proportional way to the temperature in Celsius degrees.  
+
+
+- Juan Barillas / Arduino Starter Kit
