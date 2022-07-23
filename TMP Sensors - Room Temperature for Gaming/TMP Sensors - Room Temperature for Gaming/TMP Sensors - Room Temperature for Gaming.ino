@@ -1,10 +1,10 @@
   const int sensorPin = A0;
-  const float baselineTemp = 20.0;
+  const float baselineTemp = 20.00;
 
 void setup() {
 Serial.begin(9600); //Speed in which the Arduino communicates with the ID.
 
-for(int pinNumber = 2; pinNumber < 5; pinNumber++){ // FOR cycle to go through pins 2 to 4 
+for(int pinNumber = 2; pinNumber < 6; pinNumber++){ // FOR cycle to go through pins 2 to 4 
   pinMode(pinNumber,OUTPUT);
   digitalWrite(pinNumber, LOW);
 }
@@ -26,34 +26,32 @@ void loop() { //Serial.Print() sends the info from the Arduino to a PC connected
   Serial.print(", degrees C: ");
   Serial.println(temperature);
 
-  if(temperature < baselineTemp){ //Temperature below the Base Line Temp constant created before. 
+  if(temperature <= baselineTemp+3){ //Temperature below the Base Line Temp constant created before. 
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
+    digitalWrite(5, HIGH);
   }
    
-   else if(temperature >= baselineTemp && temperature <= baselineTemp2){//&& operator means and in a logical meaning. 
-    digitalWrite(2, HIGH);
+   else if(temperature >= baselineTemp+3 && temperature < baselineTemp+5.00){//&& operator means and in a logical meaning. 
+    digitalWrite(2, LOW);
     digitalWrite(3, LOW);
-    digitalWrite(4, LOW);
-   }
-
-   else if(temperature >= baselineTemp+2 && temperature <= baselineTemp+4){//&& operator means and in a logical meaning. 
-    digitalWrite(2, HIGH);
-    digitalWrite(3, LOW);
-    digitalWrite(4, LOW);
-   }
-
-   else if(temperature >= baselineTemp+4 && temperature <= baselineTemp+6){//&& operator means and in a logical meaning. 
-    digitalWrite(2, HIGH);
-    digitalWrite(3, HIGH);
-    digitalWrite(4, LOW);
-   }
-
-   else if(temperature >= baselineTemp+6){ 
-    digitalWrite(2, HIGH);
-    digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
+    digitalWrite(5, LOW);
+   }
+
+   else if(temperature >= baselineTemp+5 && temperature < baselineTemp+7){//&& operator means and in a logical meaning. 
+    digitalWrite(2, LOW);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+   }
+
+   else if(temperature > baselineTemp+7){ 
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
    }
 
     delay(1000);
