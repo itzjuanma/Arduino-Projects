@@ -1,0 +1,13 @@
+MULTIPLE COLORS LAMP (23/07/2022)
+
+
+Arduino can't vary the output voltage of its pins as it can only provide 5V. We'll use a technique called Pulse Width Modulation (PWM) to atenuate the LEDs. The PWM increments or lowers the pin's voltage rapidly along a fixed period of time. 
+
+When you exchange the pin from HIGH to LOW at a great pace, it's like if you're changing the voltage. The amount of time in which the pin is in HIGH is called Work Cycle. When the pin is in HIGH during half of the period and LOW during the other half, the Work Cycle is 50%.
+
+The Arduino has six pins asigned for PWM which are PINs 3,5,6,9,10,11 that are marked with a little sinusoid sign besides them. 
+
+On this project, we will use phototransistors as entries. This components generate a current proportional to the amount of light that they absorb. If we connect the positive terminal (Larger Size) of the transistor to the 5V of Arduino and the negative terminal to GND using a resistor, it's possible to measure the current variation by checking the tension of the pin. 
+
+
+- Juan Barillas / Arduino Starter Kit
