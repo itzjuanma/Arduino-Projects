@@ -10,4 +10,24 @@ The Arduino has six pins asigned for PWM which are PINs 3,5,6,9,10,11 that are m
 On this project, we will use phototransistors as entries. This components generate a current proportional to the amount of light that they absorb. If we connect the positive terminal (Larger Size) of the transistor to the 5V of Arduino and the negative terminal to GND using a resistor, it's possible to measure the current variation by checking the tension of the pin. 
 
 
+
+
+****CODE**********
+
+We read the values of the sensors A0, A1 and A2 using analogRead(), we have to set a delay between each analogRead as the ADC takes a milisecond on doing it's job. 
+
+\t (Alt + 92) is the equivalent of pressing the tab key on the keyboard. 
+
+The funtcion to change the LED brightness using PWM of pulse width is called analogWrite(), this function takes two arguments: The first argument is the pin where it will write and the second is a Value between 0 and 255. This number represents the work cycle that Arduino will execute on the specified pin. 
+	- 255 = HIGH (LED will be at max brightness)
+	- 127 = HIGH but just half of the period which will atenuate the LED. 
+	- 0   = LOW which will turn off the LED during the whole period. 
+
+The sensor will give us a value between 0 and 1023 so to convert the read value of the pin from a value of 0 - 1023 to a value of 0 - 255 to use analog write, we must divide the value by 4.
+
+so we use:
+
+		analogWrite(pin , value between 0 - 255) 
+
+
 - Juan Barillas / Arduino Starter Kit
